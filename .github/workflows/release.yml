@@ -5,6 +5,7 @@ on:
       - "*"
 jobs:
   android:
+    permissions: write-all
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -18,9 +19,8 @@ jobs:
       - run: flutter --version
       - run: flutter pub get
       - run: flutter build appbundle
-      - run: mv build/app/outputs/bundle/release/app-release.aab app-release.aab
       - uses: softprops/action-gh-release@v2
         with:
-          files: app-release.aab
+          files: build/app/outputs/bundle/release/app-release.aab
 
 
