@@ -1,0 +1,20 @@
+name: release
+on:
+  push:
+    tags:
+      - "*"
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+      - uses: oberhauser-dev/flutter-release-action@v0
+        with:
+            token: ${{ github.token }}
+            app-name: 'chientrm Universal App'
+            app-version: ${{ github.ref_name }}
+            tag: ${{ github.ref }}
