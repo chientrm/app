@@ -10,10 +10,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: subosito/flutter-action@v2
         with:
-          channel: stable
+          flutter-version: 3.19.0
       - run: flutter pub get
       - run: flutter build appbundle
       - uses: actions/upload-artifact@v4
         with:
-          name: appbundle
           path: build/outputs/bundle/release/app-release.aab
