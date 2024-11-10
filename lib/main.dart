@@ -11,12 +11,12 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Universal app',
+      title: 'Android ERP',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Universal app'),
+      home: const MyHomePage(title: 'Android ERP'),
     );
   }
 }
