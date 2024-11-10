@@ -12,9 +12,8 @@ jobs:
         with:
           channel: stable
       - run: flutter pub get
-      - uses: oberhauser-dev/flutter-release-action@v0
+      - run: flutter build appbundle
+      - uses: actions/upload-artifact@v4
         with:
-            token: ${{ github.token }}
-            app-name: 'chientrm Universal App'
-            app-version: ${{ github.ref_name }}
-            tag: ${{ github.ref }}
+          name: appbundle
+          path: build/outputs/bundle/release/app-release.aab
